@@ -4,11 +4,11 @@
 
 阅读[CeleX5_MIPI](https://github.com/CelePixel/CeleX5-MIPI)后，由于原仓库涵盖太多，其中sample也分的有点乱，自己摘取了读取bin文件的代码，并重新整理，形成这个简单的仓库。
 
-[introduction](#introduction)
+[Introduction](#introduction)
 
-[build and run](#build-and-run)
+[Build and Run](#build-and-run)
 
-[issues](#issues)
+[Issues](#issues)
 
 ## introduction
 
