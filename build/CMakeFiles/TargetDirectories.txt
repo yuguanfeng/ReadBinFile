@@ -1,3 +1,4 @@
-/home/yuguanfeng/ReadBinFile/build/CMakeFiles/rebuild_cache.dir
 /home/yuguanfeng/ReadBinFile/build/CMakeFiles/edit_cache.dir
+/home/yuguanfeng/ReadBinFile/build/CMakeFiles/rebuild_cache.dir
+/home/yuguanfeng/ReadBinFile/build/CMakeFiles/my_Test.dir
 /home/yuguanfeng/ReadBinFile/build/CMakeFiles/Test.dir

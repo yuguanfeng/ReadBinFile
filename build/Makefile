@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/yuguanfeng/ReadBinFile/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/local/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named my_Test
+
+# Build rule for target.
+my_Test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 my_Test
+.PHONY : my_Test
+
+# fast build rule for target.
+my_Test/fast:
+	$(MAKE) -f CMakeFiles/my_Test.dir/build.make CMakeFiles/my_Test.dir/build
+.PHONY : my_Test/fast
+
+#=============================================================================
 # Target rules for targets named Test
 
 # Build rule for target.
@@ -122,6 +135,33 @@ Test: cmake_check_build_system
 Test/fast:
 	$(MAKE) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/build
 .PHONY : Test/fast
+
+src/my_readBinFile.o: src/my_readBinFile.cpp.o
+
+.PHONY : src/my_readBinFile.o
+
+# target to build an object file
+src/my_readBinFile.cpp.o:
+	$(MAKE) -f CMakeFiles/my_Test.dir/build.make CMakeFiles/my_Test.dir/src/my_readBinFile.cpp.o
+.PHONY : src/my_readBinFile.cpp.o
+
+src/my_readBinFile.i: src/my_readBinFile.cpp.i
+
+.PHONY : src/my_readBinFile.i
+
+# target to preprocess a source file
+src/my_readBinFile.cpp.i:
+	$(MAKE) -f CMakeFiles/my_Test.dir/build.make CMakeFiles/my_Test.dir/src/my_readBinFile.cpp.i
+.PHONY : src/my_readBinFile.cpp.i
+
+src/my_readBinFile.s: src/my_readBinFile.cpp.s
+
+.PHONY : src/my_readBinFile.s
+
+# target to generate assembly for a file
+src/my_readBinFile.cpp.s:
+	$(MAKE) -f CMakeFiles/my_Test.dir/build.make CMakeFiles/my_Test.dir/src/my_readBinFile.cpp.s
+.PHONY : src/my_readBinFile.cpp.s
 
 src/readBinFile.o: src/readBinFile.cpp.o
 
@@ -156,9 +196,13 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... rebuild_cache"
+	@echo "... my_Test"
 	@echo "... Test"
+	@echo "... src/my_readBinFile.o"
+	@echo "... src/my_readBinFile.i"
+	@echo "... src/my_readBinFile.s"
 	@echo "... src/readBinFile.o"
 	@echo "... src/readBinFile.i"
 	@echo "... src/readBinFile.s"
